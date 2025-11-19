@@ -1,19 +1,20 @@
 #include "/home/codeleaded/System/Static/Library/WindowEngine1.0.h"
 #include "/home/codeleaded/System/Static/Library/Random.h"
-#include "/home/codeleaded/System/Static/Library/PerlinNoise.h"
+#include "/home/codeleaded/System/Static/Library/SineNoise.h"
 #include "/home/codeleaded/System/Static/Library/TransformedView.h"
 
-#define PERLINNOISE_SIZE	20.0f
+#define PERLINNOISE_SIZE	1.0f
 
 
 float Function_1D(float x){
-	return PerlinNoise_1D_Get(x) * PERLINNOISE_SIZE;
+	return SineNoise_1D_Get(x) * PERLINNOISE_SIZE;
 }
 
 TransformedView tv;
 
 void Setup(AlxWindow* w){
 	tv = TransformedView_New((Vec2){ GetWidth(),GetHeight() });
+	SineNoise_Set(100,Random_f64_MinMax(0.0,1.0),Random_f64_MinMax(0.0,1.0),Random_f64_MinMax(0.0,1.0));
 }
 
 void Update(AlxWindow* w){
