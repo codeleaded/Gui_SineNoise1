@@ -14,10 +14,11 @@ TransformedView tv;
 
 void Setup(AlxWindow* w){
 	tv = TransformedView_New((Vec2){ GetWidth(),GetHeight() });
-	SineNoise_Set(100,Random_f64_MinMax(0.0,1.0),Random_f64_MinMax(0.0,1.0),Random_f64_MinMax(0.0,1.0));
+	SineNoise_Set(10,Random_f64_MinMax(0.0,1.0),Random_f64_MinMax(0.0,1.0),Random_f64_MinMax(0.0,1.0));
 }
 
 void Update(AlxWindow* w){
+	tv.ZoomSpeed = 5.0f * w->ElapsedTime;
 	TransformedView_HandlePanZoom(&tv,window.Strokes,GetMouse());
 
 	Clear(BLACK);
