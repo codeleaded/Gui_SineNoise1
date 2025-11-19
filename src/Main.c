@@ -59,7 +59,7 @@ void Delete(AlxWindow* w){
 }
 
 int main(){
-    if(Create("PN 1D",2500,1200,1,1,Setup,Update,Delete))
+    if(Create("SN 1D",2500,1200,1,1,Setup,Update,Delete))
         Start();
     return 0;
 }
